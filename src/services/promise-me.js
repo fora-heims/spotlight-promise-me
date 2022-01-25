@@ -1,7 +1,7 @@
 /**
  * TODO:
  */
-const getNameInfo = async () => {
+export const getNameInfo = async () => {
   const response = await fetch('https://api.genderize.io/?name=fora');
   const data = await response.json();
   console.log(['async/await', data]);
@@ -9,11 +9,10 @@ const getNameInfo = async () => {
 /**
  * TODO:
  */
-const getNameInfoThen = () => {
-  const data = fetch('https://api.genderize.io/?name=fora').then((response) =>
-    response.json()
-  );
-  console.log(['.then()', data]);
+export const getNameInfoThen = () => {
+  const data = fetch('https://api.genderize.io/?name=fora')
+    .then((response) => response.json())
+    .then((finalData) => console.log(['.then()', finalData]));
 };
 /**
  * TODO:
